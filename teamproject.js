@@ -9,6 +9,7 @@
             ["Do you have a fenced backyard?", "Yes", "No", "I'm homeless", "A"],
             ["Dogs can not eat which of these?", "Chicken", "Pasta", "Chocolate", "C"]
             ];
+var users = [];
         // this get function is short for the getElementById function  
         function get(x){
         return document.getElementById(x);
@@ -74,3 +75,20 @@ for(let dog of hidden){
     dog.addEventListener('mouseover', () => dogHover(dog))
     dog.addEventListener('mouseleave', () => dogHover(dog))
 }
+function submitClick(){
+  var name = document.getElementById("name").value;
+  var number = document.getElementById("number").value;
+  var dogtype = document.getElement("dog").value;
+  var user1 = [name, number, dogtype];
+  users.push(user1);
+  printUsers();
+}
+function printUsers(){
+  document.getElementById("app").innerHTML = "Data Log";
+  for(var i = 0; i<length(users); i++){
+    document.getElementById("app").innerHTML = "Name: "+users[i][0];
+    document.getElementById("app").innerHTML = "Phone: "+users[i][1];
+    document.getElementById("app").innerHTML = "Dog: "+users[i][2];
+  }
+}
+document.getElementById("submit").addEventListener("click", submitClick());
